@@ -188,7 +188,8 @@ namespace policeinfosys.Admin
         {
             try
             {
-                LinkButton btn_select = (LinkButton)sender;
+                imgHEvidence.ImageUrl = "";
+               LinkButton btn_select = (LinkButton)sender;
                 GridViewRow item = (GridViewRow)btn_select.NamingContainer;
                 HiddenField hd_idselect = (HiddenField)item.FindControl("hd_id");
                 HiddenField hd_name = (HiddenField)item.FindControl("hd_name");

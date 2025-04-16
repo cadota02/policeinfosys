@@ -155,10 +155,12 @@
     <Content Include="About.aspx" />
     <Content Include="Admin\Account.aspx" />
     <Content Include="Admin\AdminHome.aspx" />
+    <Content Include="Admin\ManageClearance.aspx" />
     <Content Include="Admin\ManageComplaint.aspx" />
     <Content Include="Admin\ManageOfficers.aspx" />
     <Content Include="Complaint.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="Content\AdminLTE\customjs\dashboard.js" />
     <Content Include="Content\AdminLTE\customjs\dispense.js" />
     <Content Include="Content\AdminLTE\dist\css\adminlte.css" />
     <Content Include="Content\AdminLTE\dist\css\adminlte.min.css" />
@@ -2131,6 +2133,7 @@
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Officers.aspx" />
+    <Content Include="PoliceClearance.aspx" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
@@ -2176,6 +2179,13 @@
     <Compile Include="Admin\AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ManageClearance.aspx.cs">
+      <DependentUpon>ManageClearance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageClearance.aspx.designer.cs">
+      <DependentUpon>ManageClearance.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ManageComplaint.aspx.cs">
       <DependentUpon>ManageComplaint.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2200,12 +2210,24 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ClearanceAndComplaintsTrend.ashx.cs">
+      <DependentUpon>ClearanceAndComplaintsTrend.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ClearanceStats.ashx.cs">
+      <DependentUpon>ClearanceStats.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Complaint.aspx.cs">
       <DependentUpon>Complaint.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Complaint.aspx.designer.cs">
       <DependentUpon>Complaint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComplaintCategoryData.ashx.cs">
+      <DependentUpon>ComplaintCategoryData.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ComplaintStats.ashx.cs">
+      <DependentUpon>ComplaintStats.ashx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -2247,6 +2269,13 @@
     <Compile Include="Officers.aspx.designer.cs">
       <DependentUpon>Officers.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PoliceClearance.aspx.cs">
+      <DependentUpon>PoliceClearance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PoliceClearance.aspx.designer.cs">
+      <DependentUpon>PoliceClearance.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -2287,11 +2316,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\AdminLTE\dist\img\contactus\" />
+    <Folder Include="Content\images\clearance\" />
     <Folder Include="Content\images\complaint\" />
     <Folder Include="Content\images\officers\" />
     <Folder Include="log\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ComplaintCategoryData.ashx" />
+    <Content Include="ComplaintStats.ashx" />
+    <Content Include="ClearanceStats.ashx" />
+    <Content Include="ClearanceAndComplaintsTrend.ashx" />
     <None Include="packages.config" />
     <Content Include="SiteAdmin.Master" />
     <None Include="Web.Debug.config">

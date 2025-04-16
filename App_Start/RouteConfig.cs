@@ -18,6 +18,7 @@ namespace policeinfosys
             routes.MapPageRoute("admin2", "Account", "~/Admin/Account.aspx");
             routes.MapPageRoute("admin3", "ManageOfficers", "~/Admin/ManageOfficers.aspx");
             routes.MapPageRoute("admin4", "ManageComplaint", "~/Admin/ManageComplaint.aspx");
+            routes.MapPageRoute("admin5", "ManageClearance", "~/Admin/ManageClearance.aspx");
         }
     }
 }
