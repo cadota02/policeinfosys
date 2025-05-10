@@ -155,9 +155,17 @@
     <Content Include="About.aspx" />
     <Content Include="Admin\Account.aspx" />
     <Content Include="Admin\AdminHome.aspx" />
+    <Content Include="Admin\BillingRecords.aspx" />
+    <Content Include="Admin\BillingReport.aspx" />
+    <Content Include="Admin\ManageBill.aspx" />
+    <Content Include="Admin\ManageCharges.aspx" />
     <Content Include="Admin\ManageClearance.aspx" />
     <Content Include="Admin\ManageComplaint.aspx" />
     <Content Include="Admin\ManageOfficers.aspx" />
+    <Content Include="Authenticate.aspx" />
+    <Content Include="Client\ClientClearance.aspx" />
+    <Content Include="Client\ClientComplaint.aspx" />
+    <Content Include="Client\ClientHome.aspx" />
     <Content Include="Complaint.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\AdminLTE\customjs\dashboard.js" />
@@ -2157,6 +2165,9 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Shared\ChangePassword.aspx" />
+    <Content Include="Shared\InvoicePrint.aspx" />
+    <Content Include="SignUp.aspx" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -2178,6 +2189,34 @@
     </Compile>
     <Compile Include="Admin\AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BillingRecords.aspx.cs">
+      <DependentUpon>BillingRecords.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\BillingRecords.aspx.designer.cs">
+      <DependentUpon>BillingRecords.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BillingReport.aspx.cs">
+      <DependentUpon>BillingReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\BillingReport.aspx.designer.cs">
+      <DependentUpon>BillingReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageBill.aspx.cs">
+      <DependentUpon>ManageBill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageBill.aspx.designer.cs">
+      <DependentUpon>ManageBill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageCharges.aspx.cs">
+      <DependentUpon>ManageCharges.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageCharges.aspx.designer.cs">
+      <DependentUpon>ManageCharges.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ManageClearance.aspx.cs">
       <DependentUpon>ManageClearance.aspx</DependentUpon>
@@ -2210,11 +2249,39 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Authenticate.aspx.cs">
+      <DependentUpon>Authenticate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Authenticate.aspx.designer.cs">
+      <DependentUpon>Authenticate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClearanceAndComplaintsTrend.ashx.cs">
       <DependentUpon>ClearanceAndComplaintsTrend.ashx</DependentUpon>
     </Compile>
     <Compile Include="ClearanceStats.ashx.cs">
       <DependentUpon>ClearanceStats.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Client\ClientClearance.aspx.cs">
+      <DependentUpon>ClientClearance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Client\ClientClearance.aspx.designer.cs">
+      <DependentUpon>ClientClearance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Client\ClientComplaint.aspx.cs">
+      <DependentUpon>ClientComplaint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Client\ClientComplaint.aspx.designer.cs">
+      <DependentUpon>ClientComplaint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Client\ClientHome.aspx.cs">
+      <DependentUpon>ClientHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Client\ClientHome.aspx.designer.cs">
+      <DependentUpon>ClientHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="Complaint.aspx.cs">
       <DependentUpon>Complaint.aspx</DependentUpon>
@@ -2277,6 +2344,27 @@
       <DependentUpon>PoliceClearance.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shared\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shared\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\InvoicePrint.aspx.cs">
+      <DependentUpon>InvoicePrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shared\InvoicePrint.aspx.designer.cs">
+      <DependentUpon>InvoicePrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SignUp.aspx.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignUp.aspx.designer.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2297,6 +2385,13 @@
     </Compile>
     <Compile Include="SiteAdmin.Master.designer.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SiteClient.Master.cs">
+      <DependentUpon>SiteClient.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteClient.Master.designer.cs">
+      <DependentUpon>SiteClient.Master</DependentUpon>
     </Compile>
     <Compile Include="SitePublic.Master.cs">
       <DependentUpon>SitePublic.Master</DependentUpon>
@@ -2328,6 +2423,7 @@
     <Content Include="ClearanceAndComplaintsTrend.ashx" />
     <None Include="packages.config" />
     <Content Include="SiteAdmin.Master" />
+    <Content Include="SiteClient.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

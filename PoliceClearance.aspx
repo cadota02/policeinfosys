@@ -82,20 +82,43 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_body" runat="server">
     <div class="container mt-3 ">
-    <h3 class="text-center ">Police Clearance Application</h3>
-
+    <h4 class="text-center ">Police Clearance Application</h4>
+        <hr />
         <asp:HiddenField ID="hd_clearanceno" runat="server" />
         <div class="row mt-1">
           <div class="row">
             <!-- Full Name -->
-            <div class="col-md-6">
+                 <div class="col-md-3">
                 <div class="form-group">
-                    <label for="FullName">Full Name</label>
-                    <asp:TextBox ID="FullName" runat="server" CssClass="form-control" Placeholder="Enter your full name (Firstname, M.I. Lastname, Suffix)" />
-                    <asp:RequiredFieldValidator ID="rfvFullName" runat="server" ControlToValidate="FullName"
-                        ErrorMessage="Full Name is required"  ValidationGroup="add" CssClass="text-danger" Display="Dynamic" />
+                    <label >Firstname
+                          <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtfirstname"
+                        ErrorMessage="is required" CssClass="text-danger"  ValidationGroup="add" Display="Dynamic" />
+                    </label>
+                    <asp:TextBox ID="txtfirstname" runat="server" CssClass="form-control" Placeholder="Enter your Firstname" />
+                  
                 </div>
             </div>
+                 <div class="col-md-3">
+                <div class="form-group">
+                    <label >Lastname
+                          <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtlastname"
+                        ErrorMessage="is required" CssClass="text-danger"  ValidationGroup="add" Display="Dynamic" />
+                    </label>
+                    <asp:TextBox ID="txtlastname" runat="server" CssClass="form-control" Placeholder="Enter your Lastname" />
+                  
+                </div>
+            </div>
+                 <div class="col-md-3">
+                <div class="form-group">
+                    <label >Middle Name
+                          <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtmiddlename"
+                        ErrorMessage="is required" CssClass="text-danger"  ValidationGroup="add" Display="Dynamic" />
+                    </label>
+                    <asp:TextBox ID="txtmiddlename" runat="server" CssClass="form-control" Placeholder="Enter your Middle Name" />
+                  
+                </div>
+            </div>
+        
 
             <!-- Date of Birth -->
             <div class="col-md-3">
@@ -106,7 +129,7 @@
                         ErrorMessage="Date of Birth is required"  ValidationGroup="add" CssClass="text-danger" Display="Dynamic" />
                 </div>
             </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                 <div class="form-group">
                     <label>Sex</label>
                    <asp:DropDownList ID="DPSEX" runat="server" CssClass="form-control">
@@ -119,7 +142,7 @@
                 </div>
             </div>
             <!-- Address -->
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <div class="form-group">
                     <label >Address</label>
                     <asp:TextBox ID="Address" runat="server" CssClass="form-control" Placeholder="Enter your complete address" />
@@ -129,7 +152,7 @@
             </div>
 
             <!-- Valid ID Type -->
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label >Valid ID Type</label>
                     <asp:DropDownList ID="ValidIDType" runat="server" CssClass="form-control">
@@ -147,7 +170,7 @@
             </div>
 
             <!-- Valid ID Number -->
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label >Valid ID Number</label>
                     <asp:TextBox ID="ValidID" runat="server" CssClass="form-control" Placeholder="Enter your ID number" />
@@ -157,7 +180,7 @@
             </div>
 
             <!-- Upload Valid ID Image -->
-            <div class="col-md-12">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label>Upload Valid ID (Image/PDF)</label>
                     <asp:FileUpload ID="ValidIDImage" runat="server" CssClass="form-control-file" />
@@ -165,7 +188,7 @@
                         ErrorMessage="Please upload a valid ID file" CssClass="text-danger"  ValidationGroup="add" Display="Dynamic" />
                 </div>
             </div>
-
+           
             <!-- Purpose -->
             <div class="col-md-12">
                 <div class="form-group">
@@ -175,7 +198,51 @@
                         ErrorMessage="Purpose is required" CssClass="text-danger"  ValidationGroup="add" Display="Dynamic" />
                 </div>
             </div>
+             <div class="container text-center">
+                 <hr />
+  <h5>Register a new account or fill in your existing account details:</h5>
+                   <hr />
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="form-group text-left">
+                <label>Username
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtusername"
+                        ErrorMessage="is required" CssClass="text-danger" ValidationGroup="add" Display="Dynamic" />
+                </label>
+                <asp:TextBox ID="txtusername" runat="server" CssClass="form-control" Placeholder="Enter your Username" />
+            </div>
+        </div>
 
+        <div class="col-md-4">
+            <div class="form-group text-left">
+                <label>Password
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtpassword"
+                        ErrorMessage="is required" CssClass="text-danger" ValidationGroup="add" Display="Dynamic" />
+                </label>
+                <asp:TextBox ID="txtpassword" runat="server" CssClass="form-control" TextMode="Password" Placeholder="Enter your Password" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group text-left">
+                <label>Confirm Password
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtconfirmpass"
+                        ErrorMessage="is required" CssClass="text-danger" ValidationGroup="add" Display="Dynamic" />
+                </label>
+                <asp:TextBox ID="txtconfirmpass" runat="server" CssClass="form-control" TextMode="Password" Placeholder="Confirm your Password" />
+            <asp:CompareValidator ID="CompareValidator1" runat="server"
+            ControlToCompare="txtpassword"
+            ControlToValidate="txtconfirmpass"
+            Operator="Equal"
+            Type="String"
+            ErrorMessage="Confirm password do not match."
+            CssClass="text-danger"
+            ValidationGroup="add"
+            Display="Dynamic" />
+                </div>
+        </div>
+    </div>
+</div>
             <!-- Submit Button -->
             <div class="col-md-12 text-center">
                 <asp:Button ID="SubmitBtn" runat="server" CssClass="btn btn-primary" Text="Submit" OnClick="SubmitBtn_Click" ValidationGroup="add" />

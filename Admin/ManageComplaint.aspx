@@ -155,6 +155,9 @@
                            <asp:ListItem>Pending</asp:ListItem>
                            <asp:ListItem>Reviewed</asp:ListItem>
                            <asp:ListItem>Investigating</asp:ListItem>
+                               <asp:ListItem>Moved to RTC</asp:ListItem>
+                               <asp:ListItem>Rescheduled</asp:ListItem>
+                              <asp:ListItem>Completed</asp:ListItem>
                            <asp:ListItem>Resolved</asp:ListItem>
                            <asp:ListItem>Dismissed</asp:ListItem>
                 </asp:DropDownList>

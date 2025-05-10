@@ -87,7 +87,7 @@ namespace policeinfosys.Admin
                 string actionTaken = dpActionStatus.SelectedValue;
                 string remarks = txtRemarks.Text.Trim();
                 string actionBy = txtActionBy.Text.Trim();
-                int complaintId = int.Parse( hd_complaintid.Value); // you should set this from selected GridView row or ViewState
+                int complaintId = int.Parse(hd_complaintid.Value); // you should set this from selected GridView row or ViewState
 
                 using (MySqlConnection con = new MySqlConnection(connString))
                 {
@@ -99,12 +99,17 @@ namespace policeinfosys.Admin
                     cmd.Parameters.AddWithValue("@ActionBy", actionBy);
 
                     con.Open();
-                    cmd.ExecuteNonQuery();
+                  int stat=  cmd.ExecuteNonQuery();
+                    if(stat >0)
+                    {
+                        UpdateComplaintStatus(complaintId, actionTaken);
+                        AlertNotify.ShowMessage(this, "Action taken submitted successfully!", "Success", AlertNotify.MessageType.Success);
+                    }
                     con.Close();
                 }
 
                 // Optional: update status in Complaints table
-                UpdateComplaintStatus(complaintId, actionTaken);
+              
                 LoadComplaints(); // Refresh GridView
                 ClearFields();
 
@@ -120,7 +125,7 @@ namespace policeinfosys.Admin
         {
             using (MySqlConnection con = new MySqlConnection(connString))
             {
-                string updateQuery = "UPDATE Complaints SET Status = @Status WHERE ComplaintID = @ComplaintID";
+                string updateQuery = "UPDATE complaints SET Status = @Status WHERE ComplaintID = @ComplaintID";
                 MySqlCommand cmd = new MySqlCommand(updateQuery, con);
                 cmd.Parameters.AddWithValue("@Status", newStatus);
                 cmd.Parameters.AddWithValue("@ComplaintID", complaintId);
@@ -261,6 +266,7 @@ namespace policeinfosys.Admin
                             AlertNotify.ShowMessage(this, "Successfully Deleted!", "Success", AlertNotify.MessageType.Success);
                             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#modalPopUp_Delete').modal('hide')", true);
                             LoadComplaints();
+                            ClearFields();
 
                         }
                     }
@@ -279,7 +285,7 @@ namespace policeinfosys.Admin
 
         private void ClearFields()
         {
-            hd_complaintid.Value = "";
+            hd_complaintid.Value = "0";
             hd_actionid.Value = "";
             txtActionBy.Text = "";
             txtRemarks.Text = "";
@@ -306,6 +312,7 @@ namespace policeinfosys.Admin
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop3", "$('#modalComplaintHistory').modal('show');", true);
         }
+     
 
     }
 

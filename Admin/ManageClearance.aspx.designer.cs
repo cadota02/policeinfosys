@@ -69,6 +69,24 @@ namespace policeinfosys.Admin
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
+        /// pnl_warning control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnl_warning;
+
+        /// <summary>
+        /// lbl_warning control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_warning;
+
+        /// <summary>
         /// lbl_hfullname control.
         /// </summary>
         /// <remarks>
@@ -141,6 +159,15 @@ namespace policeinfosys.Admin
         protected global::System.Web.UI.WebControls.HiddenField hfClearanceID;
 
         /// <summary>
+        /// txtEditPurpose control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEditPurpose;
+
+        /// <summary>
         /// ddlStatus control.
         /// </summary>
         /// <remarks>
@@ -150,13 +177,22 @@ namespace policeinfosys.Admin
         protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
 
         /// <summary>
-        /// txtEditPurpose control.
+        /// IsRejected control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEditPurpose;
+        protected global::System.Web.UI.WebControls.Panel IsRejected;
+
+        /// <summary>
+        /// ddlreason control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlreason;
 
         /// <summary>
         /// txtpreparedby control.

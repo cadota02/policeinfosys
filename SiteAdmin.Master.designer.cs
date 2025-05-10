@@ -42,6 +42,15 @@ namespace policeinfosys
         protected global::System.Web.UI.ScriptManager ScriptManagersss;
 
         /// <summary>
+        /// liHome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liHome;
+
+        /// <summary>
         /// home control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace policeinfosys
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor home;
+
+        /// <summary>
+        /// liComplaints control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liComplaints;
 
         /// <summary>
         /// complaints control.
@@ -60,6 +78,15 @@ namespace policeinfosys
         protected global::System.Web.UI.HtmlControls.HtmlAnchor complaints;
 
         /// <summary>
+        /// liClearance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liClearance;
+
+        /// <summary>
         /// clearance control.
         /// </summary>
         /// <remarks>
@@ -67,6 +94,15 @@ namespace policeinfosys
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor clearance;
+
+        /// <summary>
+        /// liOfficers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liOfficers;
 
         /// <summary>
         /// officer control.
@@ -78,13 +114,31 @@ namespace policeinfosys
         protected global::System.Web.UI.HtmlControls.HtmlAnchor officer;
 
         /// <summary>
-        /// account control.
+        /// liBilling control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor account;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liBilling;
+
+        /// <summary>
+        /// liAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liAccount;
+
+        /// <summary>
+        /// aAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor aAccount;
 
         /// <summary>
         /// LoginStatus1 control.

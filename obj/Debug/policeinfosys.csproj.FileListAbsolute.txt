@@ -95,4 +95,3 @@ C:\Users\ASUS\source\repos\policeinfosys\bin\Microsoft.CodeDom.Providers.DotNetC
 C:\Users\ASUS\source\repos\policeinfosys\obj\Debug\policeinfosys.csproj.CopyComplete
 C:\Users\ASUS\source\repos\policeinfosys\obj\Debug\policeinfosys.dll
 C:\Users\ASUS\source\repos\policeinfosys\obj\Debug\policeinfosys.pdb
-C:\Users\ASUS\source\repos\policeinfosys\obj\Debug\policeinfosys.csprojAssemblyReference.cache

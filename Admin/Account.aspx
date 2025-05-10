@@ -192,6 +192,7 @@
                 <label class="form-label">User Role</label>
                 <asp:DropDownList ID="dprole" runat="server" CssClass="form-control">
                     <asp:ListItem Text="Administrator" Value="Admin"></asp:ListItem>
+                    <asp:ListItem Text="Cashier" Value="Cashier"></asp:ListItem>
                     <asp:ListItem Text="Client" Value="Client"></asp:ListItem>
              
                 </asp:DropDownList>

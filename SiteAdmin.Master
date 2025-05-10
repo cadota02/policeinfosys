@@ -38,27 +38,36 @@
 
       <div class="collapse navbar-collapse order-3" id="navbarCollapse">
         <!-- Left navbar links -->
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a  id="home" runat="server" href="AdminHome" class="nav-link">Home</a>
-          </li>
-         
-     
-             <li class="nav-item">
-            <a id="complaints" runat="server" href="ManageComplaint" class="nav-link"> Manage Complaints </a>
-          </li>
-         
-         <li class="nav-item">
-          <a id="clearance" runat="server" class="nav-link" href="ManageClearance"> Manage Police Clearance</a>
-        </li>
-            <li class="nav-item">
-          <a id="officer" runat="server" class="nav-link" href="ManageOfficers"> Manage Officers</a>
-        </li>
-              <li class="nav-item">
-            <a id="account" runat="server" href="Account" class="nav-link"> Account</a>
-          </li>
-        
-        </ul>
+      <ul class="navbar-nav">
+    <li id="liHome" runat="server" class="nav-item">
+        <a id="home" runat="server" href="AdminHome" class="nav-link">Home</a>
+    </li>
+    <li id="liComplaints" runat="server" class="nav-item">
+        <a id="complaints" runat="server" href="ManageComplaint" class="nav-link">Manage Complaints</a>
+    </li>
+    <li id="liClearance" runat="server" class="nav-item">
+        <a id="clearance" runat="server" href="ManageClearance" class="nav-link">Manage Clearance</a>
+    </li>
+    <li id="liOfficers" runat="server" class="nav-item">
+        <a id="officer" runat="server" href="ManageOfficers" class="nav-link">Manage Officers</a>
+    </li>
+    <li id="liBilling" runat="server" class="nav-item dropdown">
+        <a href="ManageBill" class="nav-link dropdown-toggle" data-toggle="dropdown">Billing <span class="caret"></span></a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" runat="server" href="~/ManageBill">Add Bill</a>
+            <a class="dropdown-item" runat="server" href="~/BillingRecords">Billing Records</a>
+            <a class="dropdown-item" runat="server" href="~/BillingReport">Daily Report</a>
+            <a class="dropdown-item" runat="server" href="~/ManageCharges">Reference Charges</a>
+        </div>
+    </li>
+    <li id="liAccount" runat="server" class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Account <span class="caret"></span></a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" runat="server" href="~/ChangePassword">Change Password</a>
+            <a class="dropdown-item" id="aAccount" runat="server" href="~/Account">Manage User</a>
+        </div>
+    </li>
+</ul>
 
         <!-- SEARCH FORM -->
      

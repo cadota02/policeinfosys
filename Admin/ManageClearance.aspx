@@ -112,19 +112,29 @@
                                 </div>
 
                                 <div class="table-responsive">
-                                    <asp:GridView ID="gvClearances" runat="server" AutoGenerateColumns="False" CssClass="table table-sm table-bordered table-hover"
+                                    <asp:GridView ID="gvClearances" Style="font-size: 10pt;" runat="server" AutoGenerateColumns="False" CssClass="table table-sm table-bordered table-hover"
                                         AllowPaging="true" OnPageIndexChanging="OnPagingClearance" PageSize="10" PagerSettings-Mode="NumericFirstLast"
-                                        HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle">
+                                        HeaderStyle-HorizontalAlign="Center" HeaderStyle-VerticalAlign="Middle" OnRowDataBound="gvClearances_RowDataBound">
                                         <Columns>
                                             <asp:TemplateField ItemStyle-HorizontalAlign="Center">
                                                 <HeaderTemplate>Clearance No</HeaderTemplate>
                                                 <ItemTemplate>
-                                                          <asp:LinkButton ID="btn_showprint" runat="server"  Text='<%# Eval("ClearanceNo") %>'  OnClick="btn_showprint_Click"></asp:LinkButton>
+                                                    <asp:LinkButton ID="btn_showprint" runat="server"  Text='<%# Eval("ClearanceNo") %>'  Enabled='<%# Eval("Status").ToString() != "Pending" && Eval("Status").ToString() != "Disapproved" %>'    OnClick="btn_showprint_Click"></asp:LinkButton>
+                                                      
                         
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                            
-                                            <asp:BoundField DataField="FullName" HeaderText="Full Name" />
+                                            <asp:BoundField DataField="DateFiled" HeaderText="Date Filed" DataFormatString="{0:MMM dd, yyyy}" HtmlEncode="false" />
+                                          <asp:TemplateField HeaderText="Full Name">
+                                                                    <ItemTemplate>
+                                                                      <%--  <asp:Label ID="lblFullName" runat="server" 
+                                                                            Text='<%# Eval("FullName") %>' 
+                                                                            ForeColor='<%# Eval("finalaction").ToString() == "1" ? System.Drawing.Color.Red : System.Drawing.Color.Black %>'>
+                                                                        </asp:Label>--%>
+                                                                          <asp:Label ID="lblFullName" runat="server" Text='<%# Eval("FullName") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                    
                                             <asp:BoundField DataField="DOB" HeaderText="Date of Birth"  DataFormatString="{0:MMM dd, yyyy}"/>
                                             <asp:BoundField DataField="Purpose" HeaderText="Purpose" />
                                             <asp:BoundField DataField="ValidIDType" HeaderText="ID Type" />
@@ -132,6 +142,10 @@
                                             <asp:TemplateField>
                                                 <HeaderTemplate>Action</HeaderTemplate>
                                                 <ItemTemplate>
+                                                       <asp:HiddenField ID="hdfinalaction" runat="server" Value='<%# Eval("finalaction") %>' />
+                                                    <asp:HiddenField ID="hdsex" runat="server" Value='<%# Eval("Sex") %>' />
+                                                    <asp:HiddenField ID="hddob" runat="server" Value='<%# Eval("DOB") %>' />
+                                                       <asp:HiddenField ID="hdfullname" runat="server" Value='<%# Eval("FullName") %>' />
                                                     <asp:HiddenField ID="hdClearanceID" runat="server" Value='<%# Eval("ClearanceID") %>' />
                                                     <asp:LinkButton ID="btnEditClearance" runat="server" CssClass="btn btn-success btn-xs"  OnClick="btnEditClearance_Click">Manage</asp:LinkButton>
                                                     <asp:LinkButton ID="btnDeleteClearance" runat="server" CssClass="btn btn-danger btn-xs" OnClick="btnDeleteClearance_Click" OnClientClick="return getConfirmation_verifys(this, 'Please confirm','Are you sure you want to Delete?');">Delete</asp:LinkButton>
@@ -162,7 +176,12 @@
                                              <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                                 <ContentTemplate>
                                             <div class="modal-body">
+                                           <asp:Panel ID="pnl_warning" CssClass="alert alert-warning d-flex align-items-center" runat="server" role="alert">
+                                                    <asp:Label ID="lbl_warning" runat="server" Text="" ForeColor="Red"></asp:Label>
+                                           </asp:Panel>
+                                                
                                                   <table class="table table-bordered table-hover table-sm">
+                                          
         <tbody>
             <tr>
                 <th>Full Name</th>
@@ -194,20 +213,30 @@
                                                 <asp:HiddenField ID="hfClearanceID" runat="server" />
                                                
                                                 <div class="form-group row">
-                                                     <div class="col-sm-6">
-                                                    <label>Status</label>
-                                                    <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control">
-                                                        <asp:ListItem Text="Pending" Value="Pending" />
-                                                        <asp:ListItem Text="Approved" Value="Approved" />
-                                                        <asp:ListItem Text="Released" Value="Released" />
-                                                         <asp:ListItem Text="Rejected" Value="Rejected" />
-                                                    </asp:DropDownList>
-                                                  
-                                                </div>
-                                                    <div class="col-sm-6">
+                                                      <div class="col-sm-12">
                                                     <label>Purpose</label>
                                                     <asp:TextBox ID="txtEditPurpose" runat="server" CssClass="form-control" />
                                                     </div>
+                                                     <div class="col-sm-6">
+                                                    <label>Status</label>
+                                                    <asp:DropDownList ID="ddlStatus" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
+                                                        <asp:ListItem Text="Pending" Value="Pending" />
+                                                        <asp:ListItem Text="Approved" Value="Approved" />
+                                                        <asp:ListItem Text="Released" Value="Released" />
+                                                         <asp:ListItem Text="Disapproved" Value="Disapproved" />
+                                                     
+                                                    </asp:DropDownList>
+                                                  
+                                                </div>
+                                                  <asp:Panel ID="IsRejected" CssClass="col-sm-6" runat="server">
+                                                    <label>Remarks</label>
+                                                    <asp:DropDownList ID="ddlreason" runat="server" CssClass="form-control">
+                                                        <asp:ListItem Text="No Pending Case" Value="0" />
+                                                        <asp:ListItem Text="Red-Flagged" Value="1" />
+                                                          <asp:ListItem Text="Lacking of required documentation" Value="2" />
+                                                    </asp:DropDownList>
+                                                 
+                                                </asp:Panel>
                                                 </div>
                                                  <div class="form-group row">
                                                      <div class="col-sm-6">

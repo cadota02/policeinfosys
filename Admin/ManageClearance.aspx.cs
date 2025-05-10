@@ -131,12 +131,14 @@ namespace policeinfosys.Admin
                 {
                     hfClearanceID.Value = hdClearanceID.Value;
                     ddlStatus.SelectedValue = dr["Status"].ToString();
+                    ddlreason.SelectedValue = dr["finalaction"].ToString();
                     txtEditPurpose.Text = dr["Purpose"].ToString();
                     txtapprovedby.Text = dr["approvedby"].ToString();
                     txtpreparedby.Text = dr["preparedby"].ToString();
 
 
                     lbl_hfullname.Text = dr["FullName"].ToString();
+                 
                     lbl_haddress.Text = dr["Address"].ToString();
                     lbl_hIDtype.Text = dr["ValidIDType"].ToString();
                     lbl_hIDno.Text = dr["ValidID"].ToString();
@@ -145,7 +147,9 @@ namespace policeinfosys.Admin
                     lbl_hdatefiled.Text = dr["DateFiled"].ToString();
 
                     string imgPath = dr["ValidIDFilePath"].ToString();
-
+                    bool isredflag= redflagcheck(lbl_hfullname.Text, dr["Sex"].ToString(), dr["DOB"].ToString());
+                    lbl_warning.Text = isredflag ==true ? "The applicant " + lbl_hfullname.Text + " has been red-flagged in the system due to a previous criminal record." : "";
+                    pnl_warning.Visible = isredflag;
                     if (!string.IsNullOrEmpty(imgPath))
                     {
                         imgID.ImageUrl = "../"+ imgPath;
@@ -171,12 +175,13 @@ namespace policeinfosys.Admin
 
                 using (MySqlConnection con = new MySqlConnection(connString))
                 {
-                    string query = "UPDATE policeclearance SET Status=@Status, Purpose=@Purpose , preparedby=@preparedby, approvedby=@approvedby WHERE ClearanceID=@ID";
+                    string query = "UPDATE policeclearance SET finalaction=@finalaction, Status=@Status, Purpose=@Purpose , preparedby=@preparedby, approvedby=@approvedby WHERE ClearanceID=@ID";
                     MySqlCommand cmd = new MySqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@Status", status);
                     cmd.Parameters.AddWithValue("@Purpose", purpose);
                     cmd.Parameters.AddWithValue("@approvedby", txtapprovedby.Text);
                     cmd.Parameters.AddWithValue("@preparedby", txtpreparedby.Text);
+                    cmd.Parameters.AddWithValue("@finalaction", ddlreason.SelectedValue);
                     cmd.Parameters.AddWithValue("@ID", hfClearanceID.Value);
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -203,6 +208,7 @@ namespace policeinfosys.Admin
 
             imgID.ImageUrl = "";
             hfClearanceID.Value = "";
+            ddlreason.ClearSelection();
             ddlStatus.ClearSelection();
             txtapprovedby.Text = "";
             txtpreparedby.Text = "";
@@ -259,5 +265,57 @@ namespace policeinfosys.Admin
                 con.Close();
             }
         }
+
+        protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ddlreason.SelectedValue = "0";
+            if (ddlStatus.SelectedValue == "Disapproved")
+            {
+                ddlreason.SelectedValue = "1";
+            }
+        }
+        public bool redflagcheck(string name, string sex, string dob)
+        {
+            bool stat = false;
+            using (MySqlConnection con = new MySqlConnection(connString))
+            {
+                string query = "SELECT * FROM policeclearance WHERE finalaction=1 and FullName =@name and Sex=@sex and DOB=@DOB";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@sex", sex);
+                cmd.Parameters.AddWithValue("@dob", Convert.ToDateTime(dob).ToString("yyyy-MM-dd"));
+                con.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+                int countread = 0;
+               while (reader.Read())
+                {
+                    countread++;
+                }
+               if(countread >0)
+                {
+                    stat = true;
+                }
+            }
+            return stat;
+        }
+        protected void gvClearances_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                // Get FinalAction value
+                HiddenField hdfinalaction = (HiddenField)e.Row.FindControl("hdfinalaction");
+                HiddenField hdsex = (HiddenField)e.Row.FindControl("hdsex");
+                HiddenField hddob = (HiddenField)e.Row.FindControl("hddob");
+            
+                Label lblFullName = (Label)e.Row.FindControl("lblFullName");
+                bool IsRedflagged = redflagcheck(lblFullName.Text, hdsex.Value,hddob.Value);
+                if (IsRedflagged)
+                {
+                    lblFullName.ForeColor = System.Drawing.Color.Red;
+                }
+            }
+        }
+
     }
- }
+
+}
