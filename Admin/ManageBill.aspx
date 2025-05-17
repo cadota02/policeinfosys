@@ -65,7 +65,7 @@
                                 AutoGenerateColumns="False"  >
                                 <Columns>
                                     <asp:BoundField DataField="chargename" HeaderText="Item/Description" />
-                                        <asp:BoundField DataField="qty" HeaderText="Price" DataFormatString="{0:N2}" />
+                                        <asp:BoundField DataField="qty" HeaderText="Qty" DataFormatString="{0:N2}" />
                                     <asp:BoundField DataField="price" HeaderText="Price" DataFormatString="{0:N2}" />
                                      <asp:BoundField DataField="amount" HeaderText="Amount" DataFormatString="{0:N2}" />
                                     <asp:TemplateField>
